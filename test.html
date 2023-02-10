@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. spread 연산자
+        // 2. concat
+        // 3. filter
+        // 4. map
+        // 5. slice
+
+        //얕은 복사 ->래퍼런스를 복사
+        // let a = [1, 2, 3];
+        // let b = a;
+        // console.lod('a', a);
+        // console.lod('b', b);
+
+        // b[0] = 0;
+        // console.lod('a', a);
+        // console.lod('b', b);
+
+        //깊은 복사
+        //5가지 -> spread (...), concat, filter, slice, map
+        // 1. spred 연산자
+        // let a1 = [1, 2, 3];
+        // let b1 = [...a1];
+        // b1[0] = 0;
+        // console.log(a1);
+        // console.log(b1);
+
+        // 2. concat (배열에 값을 추가하는 함수)
+        // let a1 = [1, 2, 3];
+        // let b1 = a1.concat(4); //[1,2,3,4]
+        // b1[0] = 0;
+        // console.log(a1);
+        // console.log(b1);
+
+        // 3. filter -> 거르는 함수(조건을 넣어서 true)
+        // let a1 = [1, 2, 3];
+        // let b1 = a1.filter((n) => { return n != 1 }) //[1,2,3,4]
+        // b1[0] = 0;
+        // console.log(a1);
+        // console.log(b1);
+
+        // 4. slice -> 잘라내는 함수
+        // let a1 = [1, 2, 3];
+        // let b1 = a1.slice(1, 3); //[2,3]
+        // b1[0] = 0;
+        // console.log(a1);
+        // console.log(b1);
+
+        // 5. map -> 반복, 추가적인 연산
+        // for (x)-> for 함수 여러줄 /jsx는 한줄 문법,
+        // foreach
+        // let a1 = [1, 2, 3];
+        // let b1 = a1.map((n) => n * 2); // [2,4,6]
+        //   b1[0] = 0;
+        // console.log(a1);
+        // console.log(b1);
+
+
+        const user = [
+            { id: 1, name: 'A' },
+            { id: 2, name: 'B' },
+            { id: 3, name: 'C' },
+        ];
+
+        const updateUserDto = { id: 2, name: 'D' };
+
+        user.map((u) => u.id === updateUserDto.id) ? { ...u, ...updateUserDto } : u;
+        // const arr = { name: 'A' }
+        // const arr2 = { ...arr, name: 'B' };
+
+        const newUser = user.map((u) => u.id === updateUserDto.id ? { ...u, updateUserDto } : u);
+        consloe.log(newUser);
+
+        //quiz
+        const list = [1, 2, 3];
+        //1. slice + concat
+        list.slice(0, 2).concat(4).concat((list.slice(2, 3)));
+
+        const newList = [...list.slice(0, 2), 4, ...list.slice(2, 3)];
+        consloe.log(newList);
+
+        // map + spread 연산자를 써서 배열의 내용을 바꿀거
+
+    </script>
+</body>
+
+</html>`
